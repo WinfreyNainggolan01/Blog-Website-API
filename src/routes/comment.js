@@ -6,7 +6,8 @@ const {
     addNewComment,
     getComments,
     getCommentsByPost,
-    getCommentsCount
+    getCommentsCount,
+    deleteComment
 } = require('../handlers/comment');
 
 const commentRoutes = [
@@ -29,6 +30,11 @@ const commentRoutes = [
         method: 'GET',
         path: '/comment-num',
         handler: getCommentsCount,
+    },
+    {
+        method: 'DELETE',
+        path: '/delete-comment/{id}',
+        handler: deleteComment,
     }
     
 ];

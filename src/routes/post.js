@@ -10,7 +10,9 @@ const {
     getPostByCategoryId,
     getTrendingPost,
     getFreshPost,
-    searchPost
+    searchPost,
+    deletePost,
+    updatePost
 } = require('../handlers/post');
 
 const PostRoutes = [
@@ -53,7 +55,17 @@ const PostRoutes = [
         method: 'GET',
         path: '/search/{query}',
         handler: searchPost,
-    }
+    },
+    {
+        method: 'DELETE',
+        path: '/delete-post/{id}',
+        handler: deletePost,
+    },
+    {
+        method: 'PUT',
+        path: '/update-post/{id}',
+        handler: updatePost,
+    },
 ];
 
 module.exports = PostRoutes;

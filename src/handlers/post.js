@@ -136,6 +136,35 @@ const searchPost = async (req, h) => async (req, h) => {
     }
 }
 
+// path: '/delete-post/{id}'
+const deletePost = async (req, h) => {
+    try {
+        const post = await Post.findOneAndDelete({_id: req.params.id});
+        if(!post) {
+            return h.response({error: 'Post not found'}).code(404);
+        }
+        return h.response({msg: 'Post deleted'}).code(200);
+    } catch (error) {
+        console.error(error);
+        return h.response({error: 'Error deleting post'}).code(500);
+    }
+}
+
+// path: '/update-post/{id}'
+const updatePost = async (req, h) => {
+    try {
+        const post = await Post.findOneAndUpdate({_id: req.params.id}, req.payload, {new: true});
+        if(!post) {
+            return h.response({error: 'Post not found'}).code(404);
+        }
+        return h.response({msg: 'Post updated', post}).code(200);
+    }
+    catch (error) {
+        console.error(error);
+        return h.response({error: 'Error updating post'}).code(500);
+    }
+}
+
 module.exports = {
     addNewPost,
     getPost,
@@ -144,5 +173,7 @@ module.exports = {
     getPostByCategoryId,
     getTrendingPost,
     getFreshPost,
-    searchPost
+    searchPost,
+    deletePost,
+    updatePost
 }

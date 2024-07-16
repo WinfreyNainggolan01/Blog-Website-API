@@ -47,9 +47,32 @@ const getCategoryCount = async (req, h) => {
     }
 }
 
+// path: '/delete-category/{id}'
+const deleteCategory = async (req, h) => {
+    try {
+        const category = await Category.findByIdAndDelete(req.params.id);
+        return h.response({message: 'Category deleted', category}).code(200);
+    } catch (error) {
+        return h.response({error: 'Error deleting category'}).code(500);
+    }
+}
+
+// path: '/update-category/{id}'
+const updateCategory = async (req, h) => {
+    try {
+        const category = await Category.findByIdAndUpdate(req.params.id, req.payload, {new: true});
+        return h.response({message: 'Category updated', category}).code(200);
+    } catch (error) {
+        return h.response({error: 'Error updating category'}).code(500);
+    }
+}
+
+
 module.exports = {
     addNewCategory,
     getCategories,
-    getCategoryCount
+    getCategoryCount,
+    deleteCategory,
+    updateCategory
 }
 

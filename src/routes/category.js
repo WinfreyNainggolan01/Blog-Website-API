@@ -5,7 +5,9 @@
 const {
     addNewCategory,
     getCategories,
-    getCategoryCount
+    getCategoryCount,
+    deleteCategory,
+    updateCategory
 } = require('../handlers/category');
 
 const CategoryRoutes = [
@@ -23,6 +25,16 @@ const CategoryRoutes = [
         method: 'POST',
         path: '/new-category',
         handler: addNewCategory,
+    },
+    {
+        method: 'DELETE',
+        path: '/delete-category/{id}',
+        handler: deleteCategory,
+    },
+    {
+        method: 'PUT',
+        path: '/update-category/{id}',
+        handler: updateCategory,
     }
 ]
 

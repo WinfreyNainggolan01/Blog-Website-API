@@ -69,9 +69,20 @@ const getCommentsCount = async (req, h) => {
     
 }
 
+// path: '/delete-comment/{id}'
+const deleteComment = async (req, h) => {
+    try {
+        const comment = await Comment.findOneAndDelete({_id: req.params.id});
+        return h.response({message: 'Comment deleted', comment}).code(200);
+    } catch (error) {
+        return h.response({error: 'Error deleting comment'}).code(500);
+    }
+}
+
 module.exports = {
     addNewComment,
     getComments,
     getCommentsByPost,
-    getCommentsCount
+    getCommentsCount,
+    deleteComment
 }
