@@ -11,7 +11,7 @@ const Comment = mongoose.model('Comment');
 const addNewComment = async (req, h) => {
     const {
         body,
-        post
+        post,
     } = req.payload;
 
     if(!body || !post) return h.response({error: 'All fields are required'}).code(400);

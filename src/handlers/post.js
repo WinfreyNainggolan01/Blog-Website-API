@@ -15,7 +15,7 @@ const addNewPost = async (req, h) => {
         numOfLike,
         imgUrl,
         isFeatured,
-        category
+        category,
     } = req.payload;
 
     if(!title || !description || !imgUrl || !category || !numOfLike || !isFeatured) {

@@ -68,6 +68,7 @@ const updateCategory = async (req, h) => {
 }
 
 
+
 module.exports = {
     addNewCategory,
     getCategories,

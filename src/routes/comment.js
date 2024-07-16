@@ -7,7 +7,7 @@ const {
     getComments,
     getCommentsByPost,
     getCommentsCount,
-    deleteComment
+    deleteComment,
 } = require('../handlers/comment');
 
 const commentRoutes = [

@@ -12,7 +12,7 @@ const {
     getFreshPost,
     searchPost,
     deletePost,
-    updatePost
+    updatePost,
 } = require('../handlers/post');
 
 const PostRoutes = [

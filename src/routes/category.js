@@ -7,7 +7,7 @@ const {
     getCategories,
     getCategoryCount,
     deleteCategory,
-    updateCategory
+    updateCategory,
 } = require('../handlers/category');
 
 const CategoryRoutes = [
